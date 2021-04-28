@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-MX" xml:lang="es-MX">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Estadisticas</title>
+
+        {% load static %}
+		<link href="{% static 'style.css'  %}" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="{% static 'function.js'  %}"></script>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('44', {'packages':['bar','corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart1);
+      google.charts.setOnLoadCallback(drawChart2);
+      google.charts.setOnLoadCallback(drawVisualization);
+      google.charts.setOnLoadCallback(drawVisualization2);
+      google.charts.setOnLoadCallback(drawVisualization3);
+      google.charts.setOnLoadCallback(drawVisualization4);
+      google.charts.setOnLoadCallback(drawVisualization5);
+      google.charts.setOnLoadCallback(drawChartarea);
+
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable({{indDatos|safe}});
+
+        var options = {
+          legend: {
+        position: "none"
+    },
+    hAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+
+      colors: ['orange'],
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+
+      function drawChart1() {
+        var data = google.visualization.arrayToDataTable({{indDatos1|safe}});
+
+        var options = {
+          legend: {
+        position: "none"
+    },
+    hAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+
+      colors: ['purple'],
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material1'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable({{indDatos2|safe}});
+
+        var options = {
+          legend: {
+        position: "none"
+    },
+    hAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+
+      colors: ['blue'],
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material2'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable({{indDatos3|safe}});
+        var options = {
+          backgroundColor: 'transparent',
+          colors: ['orange', 'red', 'blue'],
+          legend: {
+            textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 17,
+            bold: true,
+            italic: false
+        }
+    },
+    hAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+
+          chartArea:  {left:50,top:30,width:'60%',height:'84%'},
+          //vAxis: {title: 'Intentos'},
+          //hAxis: {title: 'Día'},
+          seriesType: 'bars',
+          series: {3: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+
+      function drawVisualization2() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable({{indDatos4|safe}});
+        var options = {
+          backgroundColor: 'transparent',
+          colors: ['orange', 'purple', 'blue'],
+          legend: {
+            textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 17,
+            bold: true,
+            italic: false
+        }
+    },
+    hAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+          chartArea:  {left:50,top:30,width:'60%',height:'84%'},
+          //vAxis: {title: 'Intentos'},
+          //hAxis: {title: 'Día'},
+          seriesType: 'bars',
+          series: {3: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div2'));
+        chart.draw(data, options);
+      }
+
+
+      function drawVisualization3() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable({{indDatos5|safe}});
+        var options = {
+          backgroundColor: 'transparent',
+          colors: ['orange', 'black', 'blue'],
+          legend: {
+            textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 17,
+            bold: true,
+            italic: false
+        }
+    },
+    hAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+
+          chartArea:  {left:50,top:30,width:'60%',height:'84%'},
+          //vAxis: {title: 'Intentos'},
+          //hAxis: {title: 'Día'},
+          seriesType: 'bars',
+          series: {3: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div3'));
+        chart.draw(data, options);
+      }
+
+
+      function drawVisualization4() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable({{indDatos6|safe}});
+        var options = {
+          backgroundColor: 'transparent',
+          colors: ['blue', 'black', 'blue'],
+          legend: {
+            textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 17,
+            bold: true,
+            italic: false
+        }
+    },
+    hAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+          chartArea:  {left:50,top:30,width:'60%',height:'84%'},
+          //vAxis: {title: 'Intentos'},
+          //hAxis: {title: 'Día'},
+          seriesType: 'bars',
+          series: {3: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div4'));
+        chart.draw(data, options);
+      }
+
+      function drawVisualization5() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable({{indDatos7|safe}});
+        var options = {
+          backgroundColor: 'transparent',
+          colors: ['purple', 'black', 'blue'],
+          legend: {
+            textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 17,
+            bold: true,
+            italic: false
+        }
+    },
+    hAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+    vAxis: {
+        textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 20,
+            bold: true,
+            italic: false
+        }
+    },
+          chartArea:  {left:50,top:30,width:'60%',height:'84%'},
+          //vAxis: {title: 'Intentos'},
+          //hAxis: {title: 'Día'},
+          seriesType: 'bars',
+          series: {3: {type: 'line'}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div5'));
+        chart.draw(data, options);
+      }
+
+
+
+
+
+      function drawChartarea() {
+        var data = google.visualization.arrayToDataTable({{indDatos8|safe}});
+    
+    
+        var options = {
+          backgroundColor: 'transparent',
+          colors: ['orange', 'black', 'blue'],
+          legend: {
+            textStyle: {
+            color: "#000",
+            fontName: "sans-serif",
+            fontSize: 17,
+            bold: true,
+            italic: false
+        }
+    },
+          chartArea:  {left:57,top:55,width:'73%',height:'72%'},
+          is3D: true,
+        };
+    
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d_2'));
+        chart.draw(data, options);
+      }
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+  
+	</head>
+
+
+
+	
+	<header class ="main">
+		<div class="stats">
+		 <button class="bstats" onclick="location.href='http://127.0.0.1:8000/GAMESTEAM'"><span> <b> GAME & STEAM </b> </span> </button> 
+     <!--<button class="bstats" onclick="location.href='http://13.65.45.197:8000/GAMESTEAM'"><span> <b> GAME & STEAM </b> </span> </button> -->
+		</div>
+  		<h1>Estadísticas GAME & STEAM</h1>
+
+	</header>
+
+
+
+
+
+ 
+  <br>
+
+  <header class ="user">
+
+
+  
+    <h1 class="usertitle">¡<b>Hola {{user.get_username}}</b>, estas son tus estadísticas de GAME & STEAM!</h1>
+  </header>
+
+<section>
+
+	<body>
+
+		<div class="row">
+		
+	  <div class="column1">
+
+	  	<h2 class="weird"><u>Tus datos generales</u></h2>
+      <p class="visuals"><em>* Si quieres cerrar sesión por favor presiona aquí. </em>
+        {% if user.is_authenticated%}
+       <!-- <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>-->
+        <a href="{% url 'logout'%}?next=/GAMESTEAM">Logout</a>
+        <!-- <a onclick="openForm()"><b><u>obtener datos</u></b></a></em></p> -->
+
+
+              <div class="loginPopup">
+      <div class="formPopup" id="popupForm">
+        <form action="https://www.google.com.mx/?hl=es-419" class="formContainer" method="POST">
+            {% csrf_token %}
+          <h2 class="formheader">Para visualizar tus datos de juego introduce tu nombre, edad y género</h2>
+
+          <label for="Nombre">
+            <strong>Nombre</strong>
+          </label>
+          <input type="text" id="Nombre" placeholder="Nombre" name="Nombre" required>
+
+          <label for="Edad">
+            <strong>Edad</strong>
+          </label>
+          <input type="text" id="Edad" placeholder="Edad en años" name="Edad" required>
+
+          <label for="Genero">
+            <strong>Género</strong>
+          </label>
+          <input type="text" id="Genero" placeholder="Femenino o masculino" name="Genero" required>
+
+          <button type="submit" class="btn">Aceptar</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Cancelar</button>
+
+        </form>
+      </div>
+    </div>
+
+
+	  	
+      <hr size=8 width="100%" color="black">
+       <h4> Usuario: <b style= "color:white;">{{user.get_username}}</b> </h4> 
+        <hr size=8 width="100%" color="black">
+        <h4> Edad: <b style= "color: white;">{{edad}}</b> </h4> 
+        <hr size=8 width="100%" color="black">
+        <h4> Género: <b style= "color:white;">{{genero}}</b> </h4> 
+        <hr size=8 width="100%" color="black">
+        <h4> Último inicio de sesión: <b style= "color: white;">{{last_login}} (UTC)</b> </h4> 
+        <hr size=8 width="100%" color="black">
+        <h4> Carreras que te podrían gustar: <b style= "color: white;">{{carreras}}</b> </h4>   </h4>
+      
+
+     <!-- <hr size=8 width="100%" color="black">
+       <h4> Usuario: <b style= "color:white;">{{nombreUsuario}}</b> </h4> 
+        <hr size=8 width="100%" color="black">
+        <h4> Edad: <b style= "color: white;">Edad</b> </h4> 
+        <hr size=8 width="100%" color="black">
+        <h4> Género: <b style= "color:white;">Genero</b> </h4> 
+        <hr size=8 width="100%" color="black">
+        <h4> Último inicio de sesión: <b style= "color: white;">ultimo_inicio</b> </h4> 
+        <hr size=8 width="100%" color="black">
+        <h4> Carreras que te podrían gustar: <b style= "color: white;">carreras</b> </h4>   </h4>-->
+
+	  </div>
+
+
+	  
+	  <div class= "column2">
+	  	<h2 class="weird"><u>Juego Favorito</u></h2>
+
+        <!--<div id="piechart_3dUser" style="width: 900px; height: 453px;"></div>-->
+        <div id="piechart_3d_2" style="width: 1050px; height: 453px;"></div>
+
+	  		
+
+
+	  </div>
+	  
+	</div>
+
+	<!--<hr size="15" width="100%" color="black">-->
+
+	<nobr>
+		<div class="row">
+	  <div class="column3">
+
+            <h2 class= "weird"><u>Top Scores por minijuego</u></h2>
+       <!-- <p id="chart_div" style="width: 700px; height: 430px"></p>-->
+       <div id="barchart_material" style="width: 810px; height: 500px;"></div>
+			
+
+	  </div>
+
+	  <div class= "column4">
+
+	  	<h2><u>Estadísticas del la última partida por minijuego</u></h2>
+
+           <!--<div id="timeline" style="width: 593px; height: 180px;"></div>-->
+           <div id="chart_div2" style="width: 850px; height: 500px;"></div>
+  
+
+	  </div>
+	</div>
+</nobr>
+
+
+
+  <nobr>
+    <div class="row">
+    <div class="column3">
+      
+
+      <h2 class= "weird"><u>Menor vs mayor score individual por minijuego</u></h2>
+        <!--<p id="curve_chartUser" style="width: 850px; height: 430px"></p>-->
+        <div id="chart_div" style="width: 1050px; height: 500px;"></div>
+
+    </div>
+
+    <div class= "column4">
+
+      <h2><u>Comparación top score vs top score global</u></h2>
+
+          <!--<div id="donutchartUser" style="width: 900px; height: 446px;"></div>-->
+          <div id="chart_div3" style="width: 850px; height: 500px;"></div>
+
+    </div>
+  </div>
+</nobr>
+
+
+<nobr>
+  <div class="row">
+  <div class="column3">
+    
+
+    <h2 class= "weird"><u>Tiempo total jugado por minijuego</u></h2>
+      <!--<p id="curve_chartUser" style="width: 850px; height: 430px"></p>-->
+      <div id="barchart_material2" style="width: 810px; height: 500px;"></div>
+
+  </div>
+
+  <div class= "column4">
+
+    <h2><u>Comparación menor tiempo jugado vs menor tiempo global</u></h2>
+
+        <!--<div id="donutchartUser" style="width: 900px; height: 446px;"></div>-->
+        <div id="chart_div4" style="width: 850px; height: 500px;"></div>
+
+  </div>
+</div>
+</nobr>
+
+
+
+<nobr>
+  <div class="row">
+  <div class="column31">
+    
+
+    <h2 class= "weird"><u>Intentos totales por minijuego</u></h2>
+      <!--<p id="curve_chartUser" style="width: 850px; height: 430px"></p>-->
+      <div id="barchart_material1" style="width: 810px; height: 500px;"></div>
+
+  </div>
+
+  <div class= "column41">
+
+    <h2><u>Comparación intentos totales vs intentos totales gloables</u></h2>
+
+        <!--<div id="donutchartUser" style="width: 900px; height: 446px;"></div>-->
+        <div id="chart_div5" style="width: 850px; height: 500px;"></div>
+
+  </div>
+</div>
+</nobr>
+
+
+			<hr size=5 width="100%" color="black">
+
+	<footer>
+       	<div class="downfoo">
+			<b>Autores:</b> Diego Enrique Manzanarez Velázquez    |   Santiago Orozco Quintero    |   Luis Enrique Bojórquez Almazán   |   Jesus Javier Hernández Delgado
+        </div>
+        <nav>
+            <a class="links" href="https://movimientosteam.org/historia-2/">Historia Movimiento STEAM</a>
+            <br>
+			<br>
+			<img class="links" src="{% static 'by.png' %}" alt="by" width="20" height="40" /></nav>
+
+        </nav>
+	</footer>
+
+	</body>
+
+</section>
+
+{%else%}
+<li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+{%endif%}
+
+</html>
